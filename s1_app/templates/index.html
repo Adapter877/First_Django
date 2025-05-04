@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>หน้าแรกของเว็บไชต์</title>
+{% endblock %}
+{% block content %}
+<div>
+    <h1>สวัสดีคุณ  {{name | upper}} </h1>
+    <h2>คุณมีอายุ  {{age}} </h1>
+    {% if age >= 30 %}
+<h1>คุณมีเป็นผู้ใหญ่</h1>
+        {% else %}
+        <h1>คุณมีเป็นวัยรุ่น</h1>
+    {% endif %}
+
+    <p>{% lorem 4 p random %}</p>
+</div>
+{% endblock %}

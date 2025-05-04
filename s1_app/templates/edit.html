@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+<title>แก้ไข</title>
+{% endblock title %}
+{% block content %}
+<div>
+    <h2 class="text-center">edit_Methawi</h2>
+
+
+    <form method="post">
+        {% csrf_token %} 
+        <div class="mb-3">
+          <label  class="form-label">name</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{ person.name }}" >
+          
+        </div>
+        <div class="mb-3">
+          <label class="form-label">age</label>
+          <input type="number" class="form-control" id="age" name="age" value="{{ person.age }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+{% endblock %}

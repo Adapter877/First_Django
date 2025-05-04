@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if messages %}
+{%for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+  {% endfor %}
+{% endif %}
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ไอดี</th>
+        <th scope="col">ชื่อ</th>
+        <th scope="col">อายุ</th>
+        <th scope="col">วันที่ที่เข้าร่วม</th>
+        <th scope="col">แก้ไข</th>
+        <th scope="col">ลบ</th>
+      </tr>
+    </thead>
+    <h1 class="text-center , mb-3">ตรางรายงานชื่อทั้งหมด</h1>
+    <tbody>
+        {% for person in allPerson %}
+        
+        <tr>
+            
+            <th scope="row">{{person.id}}</th>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{person.date}}</td>    
+            <td><a href="edit/{{person.id}}" class="btn btn-secondary">แก้ไข</a></td>
+            <td><a href="delete/{{person.id}}" class="btn btn-primary" onclick="return confirm ('คุนต้องการลบ {{person.name }}')">ลบ</a></td>
+          </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
